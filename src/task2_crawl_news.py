@@ -67,7 +67,9 @@ async def crawl_article(url: str) -> dict:
     run_config = CrawlerRunConfig(
         excluded_selector="div.header-gridcontent, div.footer, div[aria-label='footer']",
         markdown_generator=DefaultMarkdownGenerator(
-            content_filter=PruningContentFilter(threshold=0.5, threshold_type="dynamic", min_word_threshold=5)
+            # min_word_threshold=5 cắt luôn cả label ngắn hợp lệ kiểu "**Online Portal**"
+            # (2 từ) đứng trước phần mô tả — dùng 2 để giữ label mà vẫn lọc rác 1 từ.
+            content_filter=PruningContentFilter(threshold=0.5, threshold_type="dynamic", min_word_threshold=2)
         ),
     )
 
