@@ -61,7 +61,7 @@ def get_embedding_model():
     global _EMBEDDING_MODEL
     if _EMBEDDING_MODEL is None:
         from sentence_transformers import SentenceTransformer
-        _EMBEDDING_MODEL = SentenceTransformer(EMBEDDING_MODEL)
+        _EMBEDDING_MODEL = SentenceTransformer(EMBEDDING_MODEL, local_files_only=True)
     return _EMBEDDING_MODEL
 
 
