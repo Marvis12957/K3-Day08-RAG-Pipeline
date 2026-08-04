@@ -35,10 +35,9 @@ from .task8_pageindex_vectorless import pageindex_search
 # CONFIGURATION
 # =============================================================================
 
-# TODO: Calibrate threshold này bằng cách tự đo điểm cosine của semantic_search
-# cho câu hỏi liên quan vs câu hỏi lạc đề (xem ghi chú ở trên) — ĐỪNG copy nguyên
-# giá trị mẫu, mỗi corpus/embedding model sẽ cho khoảng điểm khác nhau.
-SCORE_THRESHOLD = 0.3   # Nếu best score (cosine gốc) < threshold → fallback PageIndex
+# Ngưỡng đã calibrate và thống nhất trong nhóm (xem checkpoint guide CP4):
+# best cosine gốc < 0.48 → coi là hybrid không đủ evidence, fallback PageIndex.
+SCORE_THRESHOLD = 0.48   # Nếu best score (cosine gốc) < threshold → fallback PageIndex
 DEFAULT_TOP_K = 5
 RERANK_METHOD = "rrf"  # "cross_encoder" | "mmr" | "rrf"
 
@@ -77,33 +76,37 @@ def retrieve(
             'source': str  # 'hybrid' hoặc 'pageindex'
         }
     """
-    # TODO: Implement full retrieval pipeline
-    #
     # Step 1: Song song chạy semantic + lexical
-    # dense_results = semantic_search(query, top_k=top_k * 2)
-    # sparse_results = lexical_search(query, top_k=top_k * 2)
-    #
-    # Step 2: Merge bằng RRF
-    # merged = rerank_rrf([dense_results, sparse_results], top_k=top_k * 2)
-    # for item in merged:
-    #     item["source"] = "hybrid"
-    #
-    # Step 3: Rerank
-    # if use_reranking and merged:
-    #     final_results = rerank(query, merged, top_k=top_k, method=RERANK_METHOD)
-    # else:
-    #     final_results = merged[:top_k]
-    #
+    dense_results = semantic_search(query, top_k=top_k * 2)
+    sparse_results = lexical_search(query, top_k=top_k * 2)
+
+    # Step 2: Merge bằng RRF — bản thân bước này đã là một dạng "rerank"
+    # (gộp thứ hạng từ 2 ranker thành 1 danh sách theo RRF score).
+    merged = rerank_rrf([dense_results, sparse_results], top_k=top_k * 2)
+    for item in merged:
+        item["source"] = "hybrid"
+
+    # Step 3: Rerank thêm (tuỳ chọn) — CHỈ áp dụng khi RERANK_METHOD khác "rrf".
+    # Bẫy: rerank(query, merged, method="rrf") sẽ luôn raise NotImplementedError
+    # (xem task7_reranking.rerank) vì RRF cần nhiều ranked_lists làm input, không
+    # khớp giao diện rerank(query, candidates, top_k) 1-list-in — RRF đã dùng ở
+    # Step 2 rồi, gọi lại kiểu này là gọi sai chỗ, không phải thiếu implement.
+    if use_reranking and merged and RERANK_METHOD != "rrf":
+        final_results = rerank(query, merged, top_k=top_k, method=RERANK_METHOD)
+    else:
+        final_results = merged[:top_k]
+
     # Step 4: Check threshold DÙNG ĐIỂM COSINE GỐC (dense_results), KHÔNG PHẢI RRF
-    # best_score = dense_results[0]["score"] if dense_results else 0.0
-    # if best_score < score_threshold:
-    #     print(f"  ⚠ Semantic best score ({best_score:.3f}) < threshold ({score_threshold})")
-    #     fallback = pageindex_search(query, top_k=top_k)
-    #     if fallback:
-    #         return fallback
-    #
-    # return final_results[:top_k]
-    raise NotImplementedError("Implement retrieve")
+    best_score = dense_results[0]["score"] if dense_results else 0.0
+    if best_score < score_threshold:
+        # Dung ASCII thuan, khong dung emoji: print() se crash tren console
+        # Windows mac dinh (cp1252) neu ky tu khong encode duoc.
+        print(f"  [fallback] Semantic best score ({best_score:.3f}) < threshold ({score_threshold})")
+        fallback = pageindex_search(query, top_k=top_k)
+        if fallback:
+            return fallback
+
+    return final_results[:top_k]
 
 
 if __name__ == "__main__":
