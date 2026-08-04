@@ -35,10 +35,16 @@ from .task8_pageindex_vectorless import pageindex_search
 # CONFIGURATION
 # =============================================================================
 
-# TODO: Calibrate threshold này bằng cách tự đo điểm cosine của semantic_search
-# cho câu hỏi liên quan vs câu hỏi lạc đề (xem ghi chú ở trên) — ĐỪNG copy nguyên
-# giá trị mẫu, mỗi corpus/embedding model sẽ cho khoảng điểm khác nhau.
-SCORE_THRESHOLD = 0.3   # Nếu best score (cosine gốc) < threshold → fallback PageIndex
+# Ngưỡng ĐO ĐƯỢC trên corpus này, không phải copy giá trị mẫu.
+# Chạy semantic_search với 6 câu đúng chủ đề và 5 câu lạc đề trên index
+# 24 documents / 180 chunks (bge-m3):
+#       đúng chủ đề : thấp nhất 0.5936   (cao nhất 0.6850)
+#       lạc đề      : cao nhất  0.4518   (thấp nhất 0.3309)
+#       khoảng trống: 0.1418  -> điểm giữa 0.5227
+# Chọn 0.52 = điểm giữa, cách đều cả hai nhóm ~0.07.
+# LAB_GUIDE đề xuất 0.48 nhưng con số đó chỉ cách nhóm lạc đề 0.026 — quá sát,
+# một câu lạc đề hơi may mắn là lọt qua mà không kích hoạt fallback.
+SCORE_THRESHOLD = 0.52  # Nếu best score (cosine gốc) < threshold → fallback PageIndex
 DEFAULT_TOP_K = 5
 RERANK_METHOD = "rrf"  # "cross_encoder" | "mmr" | "rrf"
 
@@ -77,33 +83,45 @@ def retrieve(
             'source': str  # 'hybrid' hoặc 'pageindex'
         }
     """
-    # TODO: Implement full retrieval pipeline
-    #
-    # Step 1: Song song chạy semantic + lexical
-    # dense_results = semantic_search(query, top_k=top_k * 2)
-    # sparse_results = lexical_search(query, top_k=top_k * 2)
-    #
-    # Step 2: Merge bằng RRF
-    # merged = rerank_rrf([dense_results, sparse_results], top_k=top_k * 2)
-    # for item in merged:
-    #     item["source"] = "hybrid"
-    #
-    # Step 3: Rerank
-    # if use_reranking and merged:
-    #     final_results = rerank(query, merged, top_k=top_k, method=RERANK_METHOD)
-    # else:
-    #     final_results = merged[:top_k]
-    #
-    # Step 4: Check threshold DÙNG ĐIỂM COSINE GỐC (dense_results), KHÔNG PHẢI RRF
-    # best_score = dense_results[0]["score"] if dense_results else 0.0
-    # if best_score < score_threshold:
-    #     print(f"  ⚠ Semantic best score ({best_score:.3f}) < threshold ({score_threshold})")
-    #     fallback = pageindex_search(query, top_k=top_k)
-    #     if fallback:
-    #         return fallback
-    #
-    # return final_results[:top_k]
-    raise NotImplementedError("Implement retrieve")
+    # Lấy dư gấp đôi ở mỗi nhánh: RRF cần đủ chiều sâu để một chunk bị ranker
+    # này xếp thấp vẫn có cơ hội được ranker kia kéo lên.
+    dense_results = semantic_search(query, top_k=top_k * 2)
+    sparse_results = lexical_search(query, top_k=top_k * 2)
+
+    # QUYẾT ĐỊNH FALLBACK PHẢI DÙNG ĐIỂM COSINE GỐC, TRƯỚC KHI QUA RRF.
+    # Điểm RRF sau khi fuse luôn xấp xỉ 1/(60+1) = 0.0164 cho top-1 bất kể nội
+    # dung có liên quan hay không — so nó với threshold thì fallback không bao
+    # giờ kích hoạt được, kể cả với query hoàn toàn vô nghĩa.
+    best_dense_score = dense_results[0]["score"] if dense_results else 0.0
+
+    if best_dense_score < score_threshold:
+        try:
+            fallback = pageindex_search(query, top_k=top_k)
+        except Exception:
+            fallback = []  # Hết quota/mất mạng thì không được làm sập pipeline
+        if fallback:
+            return fallback[:top_k]
+
+        # Cả hybrid lẫn PageIndex đều không đạt ngưỡng -> TRẢ RỖNG.
+        # Đừng rơi xuống nhánh hybrid: với query lạc đề, chunk điểm cao nhất là
+        # rác (đo thật: "xyzabc123nonsense" trả về dòng "Copyright © 2026 RMIT
+        # University, ABN 49 781 030 034"). Đưa rác đó vào prompt là mời LLM bịa
+        # ra câu trả lời nghe có nguồn. Trả rỗng để Task 10 nói thẳng
+        # "không xác minh được thông tin này".
+        return []
+
+    merged = rerank_rrf([dense_results, sparse_results], top_k=top_k * 2)
+    for item in merged:
+        item["source"] = "hybrid"
+
+    if use_reranking and merged:
+        final_results = rerank(query, merged, top_k=top_k, method=RERANK_METHOD)
+        for item in final_results:
+            item.setdefault("source", "hybrid")
+    else:
+        final_results = merged[:top_k]
+
+    return final_results[:top_k]
 
 
 if __name__ == "__main__":
