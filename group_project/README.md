@@ -70,19 +70,83 @@ Xem code mẫu (DeepEval/RAGAS/TruLens) chi tiết trong `README.md` gốc mục
 ## Kiến Trúc Hệ Thống
 
 ```
-[Vẽ diagram kiến trúc ở đây]
+┌─ THU THẬP (Task 1-2) ───────────────────────────────────────────────┐
+│  rmit.edu.vn                                                         │
+│    ├─ Task 1: requests → strip HTML → fpdf2 → 11 PDF chính sách      │
+│    │          (trang RMIT là HTML thuần, không publish PDF)          │
+│    └─ Task 2: Crawl4AI + PruningContentFilter → 13 bài JSON          │
+│               (raw markdown 39-50% là menu → phải tỉa boilerplate)   │
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼  data/landing/{legal,news}/
+┌─ CHUẨN HOÁ (Task 3) ────────────────────────────────────────────────┐
+│  MarkItDown → 24 file .md trong data/standardized/                   │
+│  metadata: source (tên file) + type (legal|news)                     │
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼
+┌─ INDEXING (Task 4) ─────────────────────────────────────────────────┐
+│  RecursiveCharacterTextSplitter  chunk_size=800  overlap=100         │
+│  → 180 chunks → BAAI/bge-m3 (1024d) → ChromaDB (cosine)             │
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼
+        ┌──────────────────┴──────────────────┐
+        ▼                                     ▼
+┌─ Task 5: SEMANTIC ──────┐        ┌─ Task 6: LEXICAL ───────┐
+│ bge-m3 → ChromaDB       │        │ BM25Okapi               │
+│ score = 1 − distance    │        │ k1=1.5  b=0.75          │
+│ thang [0,1]             │        │ thang 0 → ~14 không chặn│
+└────────────┬────────────┘        └────────────┬────────────┘
+             │      cùng một nguồn chunk        │
+             └──────────────┬───────────────────┘
+                            ▼
+┌─ Task 7: RRF FUSION ────────────────────────────────────────────────┐
+│  RRF(d) = Σ 1/(60 + rank)                                            │
+│  Vì sao RRF: hai thang điểm trên KHÔNG so sánh được với nhau.        │
+│  k=60 nén khoảng cách hạng đầu (1/61 vs 1/62) nên một ranker tự tin  │
+│  không áp đảo được ranker kia — tài liệu được CẢ HAI đồng thuận thắng.│
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼
+┌─ Task 9: PIPELINE + FALLBACK ───────────────────────────────────────┐
+│  Ngưỡng so với COSINE GỐC (Task 5), KHÔNG phải điểm RRF —            │
+│  điểm RRF top-1 luôn ≈ 1/61 = 0.0164 bất kể có liên quan hay không.  │
+│                                                                      │
+│  cosine ≥ 0.52  →  trả kết quả hybrid                                │
+│  cosine < 0.52  →  Task 8: PageIndex vectorless (11 PDF đã upload)   │
+│                    PageIndex rỗng nữa  →  trả [] (không trả rác)      │
+│                                                                      │
+│  0.52 đo thật: đúng chủ đề ≥ 0.5936 · lạc đề ≤ 0.4518                │
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼
+┌─ Task 10: GENERATION ───────────────────────────────────────────────┐
+│  _resolve_followup()  ghép ngữ cảnh câu nối tiếp TRƯỚC khi retrieve  │
+│  reorder_for_llm()    front + back[::-1] chống lost-in-the-middle    │
+│  format_context()     nhúng source để LLM cite được                  │
+│  gpt-4o-mini  temp=0.3  top_p=0.9  →  câu trả lời có [Nguồn, Năm]    │
+└──────────────────────────┬───────────────────────────────────────────┘
+                           ▼
+        ┌──────────────────┴──────────────────┐
+        ▼                                     ▼
+┌─ app.py (Streamlit) ────┐        ┌─ evaluation/ (RAGAS) ───┐
+│ chat + citation         │        │ 16 câu golden dataset   │
+│ slider top_k            │        │ A/B: hybrid vs dense    │
+│ expander nguồn + score  │        │ judge: gpt-4o-mini      │
+│ conversation memory     │        │ embed: bge-m3 (multiling)│
+└─────────────────────────┘        └─────────────────────────┘
 ```
 
 ---
 
 ## Phân Công Công Việc
 
-| Thành viên | MSSV | Nhiệm vụ | Trạng thái |
-|-----------|------|----------|------------|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Thành viên | MSSV | GitHub | Vai trò | Nhiệm vụ | Trạng thái |
+|-----------|------|--------|---------|----------|------------|
+| Trương Công Thái Đức | 2A202601581 | TruongDuke | Role 1 — Team Leader & RAG Architect | Điều phối; Task 1 (6 PDF thư viện + đăng ký học phần); Task 1-10; kiểm chứng RRF k=60; calibrate ngưỡng fallback 0.52; hợp nhất corpus 3 lần; gom code nhóm vào `main`; conversation memory; báo cáo `results.md` | ✅ 35/35 |
+| Trần Trung Hiếu | 2A202602002 | trunghieunef | Role 2 — Data & Pipeline Specialist | Task 1 (3 PDF học phí); Task 4 chunking + ChromaDB; Task 7 RRF; Task 9; Task 10; khử trùng lặp corpus học phí (81% → 0.1%); bổ sung PDF học bổng + ký túc xá | ✅ Task 4-10 xong |
+| Phạm Quốc Tuấn | 2A202601983 | phamquoctuan2308 | Role 3 — Frontend & Chatbot Dev | Task 2 (6 bài học bổng + sự kiện); Task 5 semantic search; Task 8 PageIndex; Task 9; Task 10; thiết kế lại giao diện `app.py` | ⚠️ còn `rerank()` ở Task 7 |
+| Trần Văn Hiếu | 2A202602030 | Marvis12957 | Role 4 — Evaluation & QA Engineer | Task 2 (5 bài ký túc xá + hỗ trợ SV + thư viện); Task 3 convert Markdown; Task 6 BM25; `golden_dataset.json` 16 câu; `eval_pipeline.py` RAGAS + A/B | ✅ 35/35 |
+
+**Số liệu chốt của nhóm:** 24 documents → 180 chunks · ngưỡng fallback 0.52 · RRF k=60 · 11 PDF đã upload PageIndex
+
+**Phân nhánh:** `main` giữ sản phẩm nhóm (code tốt nhất đã gom, 35/35). Bài cá nhân giữ ở `dev/duc-r1`, `dev/hieu-r2`, `dev/tuan-r3`, `dev/vanhieu-r4` — cả 4 người đều sửa cùng các file `src/task*.py` nên merge hết vào `main` sẽ conflict không gỡ được, và điểm cá nhân phải chấm riêng từng người.
 
 ---
 
