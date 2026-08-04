@@ -29,11 +29,14 @@ def setup_directory():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# TODO: Điền danh sách URL bài viết cần crawl
+# Nguồn được giao: Học bổng + Sự kiện (RMIT Vietnam)
 ARTICLE_URLS = [
-    # Ví dụ (trang công khai RMIT Vietnam):
-    # "https://www.rmit.edu.vn/libraryvn/...",
-    # "https://www.rmit.edu.vn/students/...",
+    "https://www.rmit.edu.vn/news/all-news/2026/jan/rmit-vietnam-announces-record-2026-scholarships-worth-more-than-200-billion-vnd",
+    "https://www.rmit.edu.vn/events/all-events/2026/rmit-tech-camp",
+    "https://www.rmit.edu.vn/students/student-news-and-events/student-events-2026/careers-festival",
+    "https://www.rmit.edu.vn/sem/discover-rmit-2025-scholarships",
+    "https://www.rmit.edu.vn/events/infosessions/ug",
+    "https://www.rmit.edu.vn/study-at-rmit/scholarships",
 ]
 
 
@@ -51,16 +54,14 @@ async def crawl_article(url: str) -> dict:
     """
     from crawl4ai import AsyncWebCrawler
 
-    # TODO: Implement crawling logic
-    # async with AsyncWebCrawler() as crawler:
-    #     result = await crawler.arun(url=url)
-    #     return {
-    #         "url": url,
-    #         "title": result.metadata.get("title", "Unknown"),
-    #         "date_crawled": datetime.now().isoformat(),
-    #         "content_markdown": result.markdown,
-    #     }
-    raise NotImplementedError("Implement crawl_article")
+    async with AsyncWebCrawler() as crawler:
+        result = await crawler.arun(url=url)
+        return {
+            "url": url,
+            "title": result.metadata.get("title", "Unknown"),
+            "date_crawled": datetime.now().isoformat(),
+            "content_markdown": result.markdown,
+        }
 
 
 async def crawl_all():
