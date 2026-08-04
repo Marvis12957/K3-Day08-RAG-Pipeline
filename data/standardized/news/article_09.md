@@ -1,7 +1,7 @@
 # 10 years of advocating reading: Book Swap anniversary - RMIT University
 
 **Source:** https://www.rmit.edu.vn/libraryvn/about-us/news/2025/10-years-book-swap
-**Crawled:** 2026-08-04T10:57:53.978732
+**Crawled:** 2026-08-04T11:06:55.376053
 
 ---
 

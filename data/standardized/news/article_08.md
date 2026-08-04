@@ -1,7 +1,7 @@
 # Student Connect - RMIT University
 
 **Source:** https://www.rmit.edu.vn/students/support/student-connect
-**Crawled:** 2026-08-04T10:57:51.693258
+**Crawled:** 2026-08-04T11:06:52.861014
 
 ---
 

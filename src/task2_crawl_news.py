@@ -30,12 +30,18 @@ def setup_directory():
 
 
 # Ký túc xá / hỗ trợ sinh viên + thư viện (RMIT Vietnam)
+# accommodation + student-connect là trang "mục lục" (menu điều hướng, ít nội dung thật) —
+# bổ sung thêm 2 trang con thực chất hơn (accommodation-for-international-students,
+# wellbeing/health-centre) thay vì bỏ 2 trang gốc, để tăng độ dày thông tin thay vì
+# chỉ dừng lại ở danh mục.
 ARTICLE_URLS = [
     "https://www.rmit.edu.vn/student-life/support-services/accommodation",
     "https://www.rmit.edu.vn/students/support/student-connect",
     "https://www.rmit.edu.vn/libraryvn/about-us/news/2025/10-years-book-swap",
     "https://www.rmit.edu.vn/libraryvn/about-us/library-events/2026/rmit-library-seminar-2026",
     "https://www.rmit.edu.vn/students/support/student-academic-success",
+    "https://www.rmit.edu.vn/students/my-studies/international-students/accommodation-for-international-students",
+    "https://www.rmit.edu.vn/student-life/support-services/wellbeing/health-centre",
 ]
 
 

@@ -1,7 +1,7 @@
 # Accommodation - RMIT University
 
 **Source:** https://www.rmit.edu.vn/student-life/support-services/accommodation
-**Crawled:** 2026-08-04T10:57:49.671354
+**Crawled:** 2026-08-04T11:06:44.663687
 
 ---
 

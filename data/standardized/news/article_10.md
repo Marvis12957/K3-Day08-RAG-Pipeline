@@ -1,7 +1,7 @@
 # RMIT Library Seminar 2026: A Focus on Future-ready Libraries - RMIT University
 
 **Source:** https://www.rmit.edu.vn/libraryvn/about-us/library-events/2026/rmit-library-seminar-2026
-**Crawled:** 2026-08-04T10:57:56.058749
+**Crawled:** 2026-08-04T11:06:58.889116
 
 ---
 
