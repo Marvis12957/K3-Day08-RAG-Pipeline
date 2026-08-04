@@ -13,12 +13,31 @@ BM25 hoạt động thế nào:
     - Document length normalization: document dài không bị ưu tiên quá mức
     - Formula: score(q,d) = Σ IDF(qi) * (tf(qi,d) * (k1+1)) / (tf(qi,d) + k1*(1-b+b*|d|/avgdl))
     - k1=1.5 (term saturation), b=0.75 (length normalization)
+
+Vì sao BM25 index CHUNK chứ không index nguyên file:
+    Task 9 gộp kết quả semantic + lexical bằng RRF. RRF chỉ gộp được thứ hạng
+    của những thứ CÙNG ĐƠN VỊ. Nếu semantic trả về chunk ~800 ký tự còn BM25
+    trả về nguyên file 20.000 ký tự thì hai danh sách không so được với nhau,
+    và file dài sẽ luôn thắng vì chứa nhiều từ khoá hơn một cách máy móc.
+    Nên ở đây tái dùng thẳng chunk_documents() của Task 4 — một nguồn chunk
+    duy nhất cho cả dense lẫn sparse.
 """
 
-from pathlib import Path
+from .task4_chunking_indexing import chunk_documents, load_documents
 
-# TODO: Load corpus từ data/standardized/ hoặc từ vector store
+# Corpus và index được dựng lazy ở lần search đầu tiên, sau đó cache lại.
 CORPUS: list[dict] = []  # List of {'content': str, 'metadata': dict}
+_bm25 = None
+
+
+def _tokenize(text: str) -> list[str]:
+    """
+    Tokenize đơn giản: hạ chữ thường rồi tách theo khoảng trắng.
+
+    Đủ dùng vì corpus là tiếng Anh. Với tiếng Việt cần tách từ ghép
+    ("học phí" là 1 từ, không phải 2) thì nên thay bằng underthesea.
+    """
+    return text.lower().split()
 
 
 def build_bm25_index(corpus: list[dict]):
@@ -28,15 +47,19 @@ def build_bm25_index(corpus: list[dict]):
     Args:
         corpus: List of {'content': str, 'metadata': dict}
     """
-    # TODO: Implement BM25 index
-    #
-    # from rank_bm25 import BM25Okapi
-    #
-    # # Tokenize - có thể đơn giản split(), hoặc dùng underthesea cho tiếng Việt
-    # tokenized_corpus = [doc["content"].lower().split() for doc in corpus]
-    # bm25 = BM25Okapi(tokenized_corpus)
-    # return bm25
-    raise NotImplementedError("Implement build_bm25_index")
+    from rank_bm25 import BM25Okapi
+
+    tokenized_corpus = [_tokenize(doc["content"]) for doc in corpus]
+    return BM25Okapi(tokenized_corpus)
+
+
+def _ensure_index():
+    """Nạp corpus + dựng BM25 index nếu chưa có."""
+    global CORPUS, _bm25
+    if _bm25 is None:
+        CORPUS = chunk_documents(load_documents())
+        _bm25 = build_bm25_index(CORPUS)
+    return _bm25
 
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
@@ -55,29 +78,27 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
         }
         Sorted by score descending.
     """
-    # TODO: Implement lexical search
-    #
-    # tokenized_query = query.lower().split()
-    # scores = bm25.get_scores(tokenized_query)
-    #
-    # # Get top_k indices
-    # import numpy as np
-    # top_indices = np.argsort(scores)[::-1][:top_k]
-    #
-    # results = []
-    # for idx in top_indices:
-    #     if scores[idx] > 0:
-    #         results.append({
-    #             "content": CORPUS[idx]["content"],
-    #             "score": float(scores[idx]),
-    #             "metadata": CORPUS[idx]["metadata"]
-    #         })
-    # return results
-    raise NotImplementedError("Implement lexical_search")
+    import numpy as np
+
+    bm25 = _ensure_index()
+    scores = bm25.get_scores(_tokenize(query))
+
+    results = []
+    for idx in np.argsort(scores)[::-1][:top_k]:
+        # Bỏ chunk không khớp từ khoá nào. Giữ lại chỉ làm nhiễu bước gộp RRF
+        # ở Task 9 vì chúng vẫn chiếm thứ hạng.
+        if scores[idx] <= 0:
+            continue
+        results.append({
+            "content": CORPUS[idx]["content"],
+            "score": float(scores[idx]),
+            "metadata": CORPUS[idx]["metadata"],
+        })
+    return results
 
 
 if __name__ == "__main__":
     # Test
     results = lexical_search("tuition fee payment methods", top_k=5)
     for r in results:
-        print(f"[{r['score']:.3f}] {r['content'][:100]}...")
+        print(f"[{r['score']:.3f}] {r['metadata']['source']} | {r['content'][:80]}...")

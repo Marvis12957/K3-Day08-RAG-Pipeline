@@ -37,8 +37,12 @@ TOP_P = 0.9
 # Chọn 0.3 vì: RAG cần factual, ít sáng tạo
 TEMPERATURE = 0.3
 
-# TODO: Chọn LLM model (OpenRouter model ID)
-LLM_MODEL = "openai/gpt-4o-mini"  # hoặc model ":free" nếu chưa có credit
+# Nhóm hiện có OPENAI_API_KEY nên gọi thẳng OpenAI. Nếu chỉ có
+# OPENROUTER_API_KEY thì tự chuyển sang OpenRouter (cùng interface OpenAI SDK,
+# chỉ khác base_url và tên model có tiền tố provider).
+LLM_MODEL_OPENAI = "gpt-4o-mini"
+LLM_MODEL_OPENROUTER = "openai/gpt-4o-mini"  # hoặc model ":free" nếu chưa có credit
+LLM_MODEL = LLM_MODEL_OPENAI
 
 
 # =============================================================================
@@ -77,15 +81,15 @@ def reorder_for_llm(chunks: list[dict]) -> list[dict]:
     Returns:
         List reordered để maximize LLM attention.
     """
-    # TODO: Implement reordering
-    #
-    # if len(chunks) <= 2:
-    #     return chunks
-    #
-    # front = chunks[::2]   # index 0, 2, 4 -> đặt ở đầu
-    # back = chunks[1::2]   # index 1, 3    -> đặt ở cuối (reversed)
-    # return front + back[::-1]
-    raise NotImplementedError("Implement reorder_for_llm")
+    if len(chunks) <= 2:
+        return list(chunks)
+
+    # chunks[::2] lấy hạng 1,3,5... đặt lên đầu; chunks[1::2] lấy hạng 2,4...
+    # đảo ngược rồi ghép vào cuối => hạng 2 nằm ở vị trí CUỐI CÙNG, nơi LLM
+    # chú ý thứ nhì sau vị trí đầu. Hạng thấp nhất bị đẩy vào giữa.
+    front = chunks[::2]
+    back = chunks[1::2]
+    return front + back[::-1]
 
 
 # =============================================================================
@@ -103,25 +107,101 @@ def format_context(chunks: list[dict]) -> str:
     Returns:
         Formatted context string.
     """
-    # TODO: Implement context formatting
-    #
-    # context_parts = []
-    # for i, chunk in enumerate(chunks, 1):
-    #     source = chunk.get("metadata", {}).get("source", f"Source {i}")
-    #     doc_type = chunk.get("metadata", {}).get("type", "unknown")
-    #     context_parts.append(
-    #         f"[Document {i} | Source: {source} | Type: {doc_type}]\n"
-    #         f"{chunk['content']}\n"
-    #     )
-    # return "\n---\n".join(context_parts)
-    raise NotImplementedError("Implement format_context")
+    context_parts = []
+    for i, chunk in enumerate(chunks, 1):
+        meta = chunk.get("metadata") or {}
+        source = meta.get("source", f"Source {i}")
+        doc_type = meta.get("type", "unknown")
+        # Tên file phải nằm nguyên văn trong context: LLM chỉ cite lại được
+        # những gì nó nhìn thấy, và người đọc cần chuỗi này để truy ngược
+        # về data/standardized/ mà đối chiếu.
+        context_parts.append(
+            f"[Document {i} | Source: {source} | Type: {doc_type}]\n"
+            f"{chunk['content']}\n"
+        )
+    return "\n---\n".join(context_parts)
 
 
 # =============================================================================
 # GENERATION
 # =============================================================================
 
-def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
+def _build_client():
+    """
+    Tạo OpenAI client. Ưu tiên OPENAI_API_KEY, không có thì thử OpenRouter.
+
+    Returns:
+        (client, model_name)
+    """
+    from openai import OpenAI
+
+    openai_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if openai_key and not openai_key.endswith("..."):
+        return OpenAI(api_key=openai_key), LLM_MODEL_OPENAI
+
+    router_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+    if router_key and not router_key.endswith("..."):
+        return (
+            OpenAI(api_key=router_key, base_url="https://openrouter.ai/api/v1"),
+            LLM_MODEL_OPENROUTER,
+        )
+
+    raise RuntimeError(
+        "Chưa có API key. Đặt OPENAI_API_KEY hoặc OPENROUTER_API_KEY trong .env"
+    )
+
+
+def _resolve_followup(query: str, history: list[dict]) -> str:
+    """
+    Viết lại câu hỏi nối tiếp thành câu độc lập, dùng cho retrieval.
+
+    Vì sao cần: người dùng hỏi "Học phí bao nhiêu?" rồi hỏi tiếp "còn học bổng
+    thì sao?". Đưa nguyên chuỗi "còn học bổng thì sao?" vào semantic_search thì
+    embedding của nó gần như vô nghĩa — mất hết chủ ngữ. Phải ghép ngữ cảnh
+    TRƯỚC khi retrieve, chứ không phải chỉ nhét history vào prompt của LLM.
+
+    Args:
+        query: Câu hỏi hiện tại
+        history: [{'role': 'user'|'assistant', 'content': str}, ...]
+
+    Returns:
+        Câu hỏi đã tự chứa ngữ cảnh (hoặc giữ nguyên nếu không có lịch sử).
+    """
+    prev_users = [m["content"] for m in history if m.get("role") == "user"]
+    if not prev_users:
+        return query
+
+    try:
+        client, model = _build_client()
+        # Chỉ lấy 3 lượt gần nhất: xa hơn thường là chủ đề khác, đưa vào chỉ
+        # làm nhiễu câu viết lại.
+        recent = "\n".join(f"- {q}" for q in prev_users[-3:])
+        resp = client.chat.completions.create(
+            model=model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "Viết lại câu hỏi cuối thành một câu độc lập, tự chứa đủ ngữ "
+                        "cảnh để tìm kiếm tài liệu. Giữ nguyên ngôn ngữ gốc. "
+                        "Nếu câu hỏi đã đầy đủ, trả lại y nguyên. "
+                        "CHỈ trả về câu hỏi, không giải thích."
+                    ),
+                },
+                {"role": "user", "content": f"Các câu hỏi trước:\n{recent}\n\nCâu hỏi cuối: {query}"},
+            ],
+            temperature=0.0,  # Viết lại phải ổn định, không sáng tạo
+        )
+        rewritten = (resp.choices[0].message.content or "").strip()
+        return rewritten or query
+    except Exception:
+        # Lỗi mạng/quota thì dùng câu gốc, đừng để chatbot chết vì bước phụ này.
+        return query
+
+
+def generate_with_citation(
+    query: str, top_k: int = TOP_K, history: list[dict] | None = None
+) -> dict:
     """
     End-to-end RAG generation có citation.
 
@@ -143,44 +223,48 @@ def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
             'retrieval_source': str  # 'hybrid' hoặc 'pageindex'
         }
     """
-    # TODO: Implement generation pipeline
-    #
-    # # Step 1: Retrieve
-    # chunks = retrieve(query, top_k=top_k)
-    #
-    # # Step 2: Reorder
-    # reordered = reorder_for_llm(chunks)
-    #
-    # # Step 3: Format context
-    # context = format_context(reordered)
-    #
-    # # Step 4: Build prompt
-    # user_message = f"""Context:\n{context}\n\n---\n\nQuestion: {query}"""
-    #
-    # # Step 5: Call LLM (OpenRouter — OpenAI-compatible API)
-    # from openai import OpenAI
-    # api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
-    # client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
-    #
-    # response = client.chat.completions.create(
-    #     model=LLM_MODEL,
-    #     messages=[
-    #         {"role": "system", "content": SYSTEM_PROMPT},
-    #         {"role": "user", "content": user_message}
-    #     ],
-    #     temperature=TEMPERATURE,
-    #     top_p=TOP_P,
-    # )
-    #
-    # answer = response.choices[0].message.content
-    #
-    # # Step 6: Return
-    # return {
-    #     "answer": answer,
-    #     "sources": chunks,
-    #     "retrieval_source": chunks[0].get("source", "hybrid") if chunks else "none"
-    # }
-    raise NotImplementedError("Implement generate_with_citation")
+    # Câu hỏi nối tiếp phải được ghép ngữ cảnh TRƯỚC khi retrieve.
+    search_query = _resolve_followup(query, history or [])
+    chunks = retrieve(search_query, top_k=top_k)
+
+    # Task 9 trả rỗng khi cả hybrid lẫn PageIndex đều dưới ngưỡng. Không gọi
+    # LLM với context rỗng: nó sẽ trả lời bằng kiến thức có sẵn, tức là bịa
+    # đúng thứ RAG sinh ra để tránh.
+    if not chunks:
+        return {
+            "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+            "sources": [],
+            "retrieval_source": "none",
+        }
+
+    reordered = reorder_for_llm(chunks)
+    context = format_context(reordered)
+
+    user_message = f"""Context:\n{context}\n\n---\n\nQuestion: {query}"""
+
+    client, model = _build_client()
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": user_message},
+        ],
+        temperature=TEMPERATURE,
+        top_p=TOP_P,
+    )
+    answer = response.choices[0].message.content
+
+    return {
+        "answer": answer,
+        # Trả CHUNKS GỐC theo thứ tự điểm, không phải bản đã reorder: reorder
+        # chỉ phục vụ sự chú ý của LLM, còn người đọc cần thấy nguồn xếp theo
+        # độ liên quan.
+        "sources": chunks,
+        "retrieval_source": chunks[0].get("source", "hybrid"),
+        # Trả về để UI hiển thị được câu đã viết lại — người dùng nhìn thấy hệ
+        # thống hiểu câu nối tiếp của mình thành gì.
+        "search_query": search_query,
+    }
 
 
 if __name__ == "__main__":
