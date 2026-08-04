@@ -2,16 +2,81 @@
   {
     "question": "Học phí hàng năm của chương trình Business tại RMIT Vietnam là bao nhiêu?",
     "expected_answer": "Khoảng 375.840.000 VND mỗi năm (tùy chương trình cụ thể).",
-    "expected_context": "Trang Tuition Fees, mục Undergraduate Programs"
+    "expected_context": "data/standardized/legal/tuition-fees-rmit.md"
   },
   {
     "question": "Học phí được thanh toán theo hình thức nào?",
-    "expected_answer": "Thanh toán theo từng học kỳ, tính theo từng môn học đã đăng ký.",
-    "expected_context": "Trang Tuition Fees, mục Payment Structure"
+    "expected_answer": "Thanh toán theo từng học kỳ, tính theo từng môn học đã đăng ký (course-by-course).",
+    "expected_context": "data/standardized/legal/tuition-payment-overview-rmit.md"
+  },
+  {
+    "question": "RMIT có quyền điều chỉnh học phí chương trình theo thời gian không?",
+    "expected_answer": "Có — RMIT có quyền điều chỉnh học phí chương trình để phản ánh mức tăng chi phí vận hành của trường.",
+    "expected_context": "data/standardized/legal/fees-and-payments-rmit.md"
+  },
+  {
+    "question": "Sinh viên có thể hoãn thanh toán học phí (defer a payment) trong trường hợp đặc biệt không?",
+    "expected_answer": "RMIT có quy định thời hạn thanh toán và đăng ký nghiêm ngặt, nhưng cũng có chính sách xem xét hoãn thanh toán (defer a payment) cho các trường hợp đặc biệt.",
+    "expected_context": "data/standardized/legal/fees-and-payments-rmit.md"
   },
   {
     "question": "Trường có cung cấp ký túc xá trong khuôn viên không?",
     "expected_answer": "Không — trường không cung cấp chỗ ở trong khuôn viên, nhưng có đội ngũ hỗ trợ sinh viên tìm chỗ ở gần trường.",
-    "expected_context": "Trang Accommodation Services"
+    "expected_context": "data/standardized/legal/accommodation-international-students-rmit.md"
+  },
+  {
+    "question": "Điều kiện để nộp đơn Academic Achievement Scholarship là gì?",
+    "expected_answer": "Là công dân Việt Nam, tốt nghiệp THPT với GPA lớp 12 tối thiểu 8.5/10 (hoặc IB 33 điểm, hoặc A-Level tương đương), và IELTS Academic tối thiểu 6.5 (không kỹ năng nào dưới 6.0).",
+    "expected_context": "data/standardized/legal/academic-achievement-scholarship-rmit.md"
+  },
+  {
+    "question": "Làm sao để đăng ký học phần (enrolment) tại RMIT Vietnam khi là sinh viên mới?",
+    "expected_answer": "Sinh viên không cần đến trường, chỉ cần vào mục Enrolment trên myRMIT và đăng nhập bằng Student ID (S-number) hoặc email RMIT (s-number@rmit.edu.vn).",
+    "expected_context": "data/standardized/legal/course-enrolment-rmit.md"
+  },
+  {
+    "question": "Sinh viên đang học re-enrol (đăng ký lại) để làm gì?",
+    "expected_answer": "Để thêm môn học/subject cho học kỳ hoặc năm học tiếp theo và giữ chỗ của mình trong chương trình đang theo học.",
+    "expected_context": "data/standardized/legal/course-enrolment-rmit.md"
+  },
+  {
+    "question": "Sinh viên RMIT có thể xin nghỉ học tạm thời (leave of absence) không?",
+    "expected_answer": "Có — sinh viên có thể tìm hiểu điều kiện và nộp đơn xin nghỉ học tạm thời (leave of absence) qua myRMIT.",
+    "expected_context": "data/standardized/legal/course-enrolment-rmit.md"
+  },
+  {
+    "question": "Thư viện RMIT Saigon South mở cửa giờ nào trong học kỳ?",
+    "expected_answer": "Thứ Hai đến Thứ Sáu: 8h sáng - 9h tối; Thứ Bảy và Chủ Nhật: 8h sáng - 5h chiều. Đóng cửa vào ngày lễ.",
+    "expected_context": "data/standardized/legal/library-hours-locations-rmit.md"
+  },
+  {
+    "question": "Liên hệ thư viện RMIT Hà Nội qua email hoặc điện thoại nào?",
+    "expected_answer": "Email: hanoilibrary@rmit.edu.vn, điện thoại: (+84) 24 3724 5920.",
+    "expected_context": "data/standardized/legal/library-hours-locations-rmit.md"
+  },
+  {
+    "question": "Sinh viên đại học/sau đại học được mượn tối đa bao nhiêu tài liệu tại thư viện và trong bao lâu?",
+    "expected_answer": "Tối đa 25 tài liệu, thời hạn mượn 30 ngày, được gia hạn 1 lần (thêm 15 ngày, tổng tối đa 45 ngày).",
+    "expected_context": "data/standardized/legal/library-borrowing-returning-rmit.md"
+  },
+  {
+    "question": "Cựu sinh viên (alumni) được mượn tối đa bao nhiêu tài liệu tại thư viện?",
+    "expected_answer": "Tối đa 5 tài liệu, thời hạn mượn 30 ngày, được gia hạn 1 lần.",
+    "expected_context": "data/standardized/legal/library-borrowing-returning-rmit.md"
+  },
+  {
+    "question": "Thư viện RMIT có bao nhiêu cơ sở dữ liệu (database) và ebook trực tuyến?",
+    "expected_answer": "Hơn 600 databases, 130.000 e-journals, 500.000 ebooks, và 130.000 video/audio streaming.",
+    "expected_context": "data/standardized/legal/library-resources-rmit.md"
+  },
+  {
+    "question": "Sự kiện Book Swap của thư viện RMIT năm 2026 kỷ niệm điều gì?",
+    "expected_answer": "Kỷ niệm 10 năm tổ chức sự kiện Book Swap thường niên nhân Ngày Sách Thế giới (World Book Day), lập kỷ lục mới về mức độ tham gia của cộng đồng.",
+    "expected_context": "data/standardized/news/article_09.md"
+  },
+  {
+    "question": "RMIT Library Seminar 2026 có chủ đề gì?",
+    "expected_answer": "Chủ đề \"Future-ready Libraries\" — hội thảo chuyên môn cả ngày quy tụ các chuyên gia bàn về tương lai của thư viện.",
+    "expected_context": "data/standardized/news/article_10.md"
   }
 ]
