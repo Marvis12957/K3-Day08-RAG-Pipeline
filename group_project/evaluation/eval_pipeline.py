@@ -231,7 +231,12 @@ def _build_ragas_judge():
     else:
         raise RuntimeError("Thiếu OPENROUTER_API_KEY hoặc GEMINI_API_KEY hợp lệ trong .env")
 
-    judge_embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    # PHẢI dùng embedding multilingual. RAGAS tính answer_relevancy bằng cách
+    # sinh câu hỏi ngược từ answer rồi so embedding với câu hỏi gốc. Golden
+    # dataset và answer đều là TIẾNG VIỆT, mà all-MiniLM-L6-v2 chỉ mạnh tiếng
+    # Anh -> điểm gần như nhiễu (đo thật: 0.309 / 0.281, trong khi ngưỡng bình
+    # thường là 0.7-0.9). bge-m3 đã được cache sẵn từ Task 4, không tải thêm.
+    judge_embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
 
     return LangchainLLMWrapper(judge_llm), LangchainEmbeddingsWrapper(judge_embeddings)
 
@@ -293,8 +298,16 @@ def export_results(comparison: dict, golden_dataset: list[dict]):
     a, b = CONFIGS[0], CONFIGS[1]
 
     lines = ["# RAG Evaluation Results", ""]
-    lines += ["## Framework sử dụng", "", "RAGAS 0.1.21 (judge LLM: gpt-4o-mini qua OpenRouter, "
-              "embeddings: sentence-transformers/all-MiniLM-L6-v2 local).", ""]
+    # Ghi đúng provider ĐANG dùng thay vì hằng số cứng — trước đây luôn in
+    # "gpt-4o-mini qua OpenRouter" kể cả khi thực tế chạy bằng OpenAI.
+    _judge_provider = (
+        "OpenAI" if os.getenv("OPENAI_API_KEY", "").strip() and "..." not in os.getenv("OPENAI_API_KEY", "")
+        else "OpenRouter/Gemini"
+    )
+    lines += ["## Framework sử dụng", "",
+              f"RAGAS 0.1.21 (judge LLM: gpt-4o-mini qua {_judge_provider}, "
+              "embeddings: BAAI/bge-m3 local — multilingual, bắt buộc vì golden "
+              "dataset và câu trả lời đều là tiếng Việt).", ""]
 
     lines += ["## Overall Scores", ""]
     lines += [f"| Metric | Config A ({a}) | Config B ({b}) | Δ |",
