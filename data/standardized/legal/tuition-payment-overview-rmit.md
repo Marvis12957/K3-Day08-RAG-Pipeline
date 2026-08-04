@@ -1,880 +1,443 @@
-Tuition Payment Overview Rmit
+Tuition payment FAQ and support - RMIT University Vietnam
 
-https://www.rmit.edu.vn/study-at-rmit/tuition-fees
+Source:
+https://www.rmit.edu.vn/students/my-studies/fees-and-payments/tuition-fees-faq-and-support
 
-Tuition feesSKIP TO CONTENT
+Collected: 2026-08-04 11:30
 
-Generated: 2026-08-04T09:59:29
+Answers  to  frequently  asked  questions  about  tuition  fee  payments,  deadlines,  extensions  and
 
-Tuition fees - RMIT University
+refunds.
 
-Sources:
+Do I get a receipt or confirmation of payment?
 
- https://www.rmit.edu.vn/study-at-rmit/tuition-fees,
+If  you  need  to  confirm  payment,  you  can  check  via  the  Financial  Account  tile  inmyRMIT,  or  ask  a
 
-https://www.rmit.edu.vn/students/my-studies/fees-and-payments
+Student
 
-RMIT Vietnam
+Connect advisor; however, payments may take up to three days to clear.
 
-RMIT Australia
+When is the deadline for payment?
 
-RMIT Europe
+The  Payment  deadline  for  tuition  fees  is  on  Friday  in  Week  3  of  each  semester,  except  for  Block
 
-Students
+courses
 
-Alumni
+and Intensive PostGrads courses as follows:
 
-Staff
+Block course: the deadline for payment is on Friday of the first week of the block course.
 
-Library
+Intensive PostGrads course: the deadline for payment is on the day before the course's start date.
 
-English
+What happens if I miss the tuition payment deadline?
 
-Tiếng ViệtSearch fieldSearchEnglish
+Failure to pay all fees and charges by the Payment Date may result in a student being withdrawn
 
-Tiếng ViệtSearchRMIT Vietnam
+from all
 
-RMIT Australia
+enrolled courses and placed on administrative Cancellation unless exceptional circumstances apply,
 
-RMIT EuropeStudentsAlumniStaffLibrary
+and a
 
-Study at RMIT
+timely application is lodged and approved.
 
-Study areas
+The penalty will affect students whose have overdue amount is as follows:
 
-Undergraduate programs
+Standard course: greater than or equal to 5 million VND
 
-Postgraduate programs
+Block course and Intensive Postgrad course: greater than or equal to 1 million VND
 
-Pathway programs
+The penalties for withdrawal will be determined based on the corresponding timeline of the courses.
 
-English language programs
+You  will  receive  an  updated  tuition  fee  debit  note  that  reverses  course  fees.  However,  library  and
 
-International students
+other
 
-Apply to RMIT
+fees will not be reversed.
 
-Global study options
+Can I seek an extension of payment?
 
-Scholarships
+Extensions are permitted in specific circumstances.You can read more here.
 
-Study at RMIT Melbourne
+How can I pay my tuition fees?
 
-Tuition fees
+You  can  pay  tuition  fees  via  the  Financial  Account  tile  inmyRMIT,  or  by  bank  transfer  or  by  credit
 
-Important dates for students
+card.
 
-Student life
+Visitthis linkfor more details regarding payment methods.
 
-Life on campus
+My debit note/my outstanding balance has a negative number. What does it mean?
 
-Sports and social clubs
+When a number is negative, for example -2,000,000 VND, it means that amount is in credit or being
 
-Support services
+reversed from an earlier debit note or a waiver.
 
-Life and work opportunities
+If your total balance is in credit, you may be eligible for a refund or re-credit; any amount in credit
 
-About
+can be used to offset against future fees.
 
-Why choose RMIT Vietnam
+What is the deadline for adding/dropping courses without penalty?
 
-RMIT Parents and Family
+By Friday in Week 4 to avoid incurring full fees.
 
-Work at RMIT
+By Friday in Week 8 to avoid avoid incurring full fees and academic penalty of NN grade (Fail).
 
-Schools and Centres
+Except for Block courses and Intensive PostGrads courses as follows:
 
-Who we are
+Block course:
 
-Vietnam Country Commitment
+Drop by the Friday of Week 2 to avoid incurring full fees.
 
-Locations and Campuses
+Drop by the Friday of Week 3 to avoid incurring full fees and academic penalties.
 
-News
+PostGrad intensive course:
 
-Events
+Drop on the first intensive day to avoid incurring full fees.
 
-Research
+Drop by the second intensive day to avoid incurring full fees and academic penalties.
 
-Research Clusters
+What if I am placed on administrative Cancellation due to Unpaid Fee and would like to come back
 
-Projects and Partnership
+to
 
-Ethics and Integrity
+study?
 
-PhD programs
+You are allowed to come back to study the following semester, subject to the terms and conditions
 
-Office for Research & Innovation
+outlined inthe Student Fees and Charges Guide(PDF, 803KB, 65p). Any outstanding debt must be
 
-Business & Industry
+paid before
 
-Employ our students and graduates
+the  student  can  successfully  re-apply  for  entry  into  RMIT  Vietnam  or  another  campus  of  RMIT
 
-Skills that make the difference
+University.
 
-Employers
+I  am  going  to  study  at  RMIT  next  semester;  however  I  have  to  cancel  my  enrolment.  Can  I  get  a
 
-Partnerships
+refund on
 
-Contact Business and Industry
+my deposit?
 
-Corporate and Executive Development
+The deposit of 20 million VND is generally non-refundable and will only be refunded if you are given
 
-Study at RMIT
+a
 
-Study areas
+conditional offer but fail to meet the conditions of that offer, OR if the University cancels an intake
 
-Undergraduate programs
+into a program.
 
-Postgraduate programs
+I  have  a  credit  in  my  RMIT  account  but  I  do  not  want  to  apply  for  a  refund  as  I  am  continuing  to
 
-Pathway programs
+study.
 
-English language programs
+Can I use my credit for future fees?
 
-International students
+Yes. The amount you have will be kept in credit and deducted from future tuition fees.
 
-Apply to RMIT
+I am enrolled in courses and have paid my tuition fees. However, due to my sickness, I cannot study
 
-Global study options
+this
 
-Scholarships
+semester  and  the  deadline  of  LOA  submission  has  passed.  Can  I  get  a  refund  of  my  fee  or  a
 
-Study at RMIT Melbourne
+re-credit for a
 
-Tuition fees
+future semester?
 
-Important dates for students
+You may qualify for a Remission of Debt. Contact Student Connect for instructions on how to submit
 
-Student life
+a
 
-Life on campus
+remission of debt form and supporting documents.
 
-Sports and social clubs
+Do I have to pay a medical insurance fee?
 
-Support services
+The medical insurance fee is compulsory for both local and international students studying at RMIT
 
-Life and work opportunities
+Vietnam.  Should  students  choose  to  arrange  their  own  medical  insurance,  evidence  of  insurance
 
-About
+must be
 
-Why choose RMIT Vietnam
+provided  at  least  10  days  before  a  semester  starts.  Students  can  apply  for  an  insurance  waiver
 
-RMIT Parents and Family
+viamyRMIT.
 
-Work at RMIT
+More information can be found on theHealth Insurancepage.
 
-Schools and Centres
+How can I use online payment via Vietcombank-iB@NKING
 
-Who we are
+Follow  the  instruction  below  for  online  payment
 
-Vietnam Country Commitment
+ via  VCB-iB@NKING  (only  applied  for
 
-Locations and Campuses
+VCB-iB@nking users):
 
-News
+Go to Vietcombank websitehere
 
-Events
+Log in, select Payment, then Bill payment.
 
-Research
+Select service, Tuition fee, Select service provider, RMIT Vietnam - HCM campus or RMIT Vietnam
 
-Research Clusters
+- Hanoi
 
-Projects and Partnership
+campus.
 
-Ethics and Integrity
+Select  fee  type  from  the  drop-down  list,  Fill  in  the  payment  amount,  Fill  in  the  Customer  code
 
-PhD programs
+(Student
 
-Office for Research & Innovation
+ID Number or Birth Date only if Student ID is not issued), Fill in Customer name (Student name) and
 
-Business & Industry
+Confirm.
 
-Employ our students and graduates
+Enter verification code → Confirm
 
-Skills that make the difference
+Enter OTP (Sent via SMS to the phone number registering with the bank)
 
-Employers
+Confirm (successful transactions will be confirmed by SMS and email).
 
-Partnerships
+For Customer code:
 
-Contact Business and Industry
+Enter correctly the Student ID Number with the following format: Sxxxxxxx or Lxxxxxxx (x: number).
 
-Corporate and Executive Development
+If you
 
-Tuition fees
+don’t have Student ID Number yet, enter your birthdate with the following format: xxyyzzzz (xx: date;
 
-At RMIT, tuition fee payments are made each semester, on a course-by-course basis.
+yy:
 
-At RMIT, tuition fee payments are made each semester, on a course-by-course basis.Home/Study at RMIT/Tuition
+month; zzzz: year).
 
-fees
+For Customer name:
 
-Back to Study at RMIT
+Enter full name of Student – NOT name of account owner if the account owner is not the student.
 
-Study areas
+Cashless campus
 
-Artificial Intelligence (AI)
+Expand all sections
 
-Aviation
+Can I use any bankcard to complete a cashless transaction?
 
-Business
+Yes, all cards and bank transfers are accepted.
 
-Communication
+Will I be charged any additional charges on top of the purchase price to cover a vendor fee?
 
-Design
+No.
 
-Economics and Finance
+Can I use a QR code?
 
-Engineering
+Yes, you can use QR codes that link to multiple e-wallets/banks.
 
-Entrepreneurship
+How do I pay with a QR code?
 
-Game design
+You can use electric devices such as smartphone, tablet to scan the QR code that connects to an
 
-Fashion
+e-wallet
 
-Human resources
+application.  Each  vendor  will  choose  to  connect  with  different  brands  of  e-wallet  to  provide
 
-Information Technology
+customers
 
-Logistics and supply chain
+with various choices that are available in their devices.
 
-Management
+Can I use any e-wallet or is it specific to the vendor?
 
-Marketing
+Each vendor may choose to connect with different brands of e-wallet.
 
-Media and film
+I don’t have a bank account or a bank card, what should I do?
 
-Psychology
+In SGS campus, student can buy a VietcomBank (VCB) Prepaid Debit Card at the cashier counter at
 
-Science
+Level 1,
 
-Tourism and Hospitality
+Building  2.  This  card  is  only  offered  to  students  who  are  ineligible  to  open  a  bank  account  and
 
-Undergraduate programs
+guests
 
-Apply for undergraduate programs
+visiting campus.
 
-form
+Hanoi campus do not offer food and parking services.
 
-List of minors in The Business School programs
+The motorbike parking fees is just a few thousand dong, can I pay by cash?
 
-Bachelor of Business
+You can choose to pay parking fees by cash or cashless methods upon your preference.
 
-Bachelor of Digital Marketing
+Will  there  be  any  options  to  purchase  food  with  cash  on  campus  after  this  new  program
 
-Bachelor of Accounting
+commences?
 
-Bachelor of Design (Digital Media)
+You can choose to pay for food and drinks by cash or cashless methods upon your preference.
 
-Bachelor of Professional Communication
+Paying your tuition fees with cashless methods
 
-Bachelor of Tourism and Hospitality Management
+Expand all sections
 
-Bachelor of Design Studies
+How can I pay tuition fees now the campus is cashless?
 
-Bachelor of Fashion (Enterprise)
+Methods
 
-Bachelor of Digital Film and Video
+Description
 
-Bachelor of Design (Games)
+MyRMIT
 
-Bachelor of Applied Science (Aviation)
-
-Bachelor of Information Technology
-
-Bachelor of Engineering (Robotics and Mechatronics Engineering) (Honours)
-
-Bachelor of Engineering (Electronic and Computer Systems Engineering) (Honours)
-
-Bachelor of Engineering (Software Engineering) (Honours)
-
-Bachelor of Psychology
-
-Bachelor of Food Technology and Nutrition
-
-Bachelor of International Studies
-
-old-program-pages
-
-Bachelor of Computer Science
-
-Postgraduate programs
-
-Apply for postgraduate programs
-
-Master of Business Administration
-
-Graduate Certificate in Business Administration
-
-Master of International Business
-
-Graduate Certificate in International Business
-
-Master of Artificial Intelligence
-
-Form
-
-Postgraduate news
-
-Pathway programs
-
-English for University
-
-Foundation Studies
-
-English placement test
-
-UniSTART
-
-English language programs
-
-IELTS Pathway
-
-Corporate English
-
-Universi-teen Summer
-
-English for Teens
-
-English for Teen - English Placement Test
-
-PhD programs
-
-Entry requirements
-
-International students
-
-Study a full degree in Vietnam
-
-Study abroad in Vietnam
-
-Exchange at RMIT Vietnam
-
-Apply to RMIT Vietnam as an international student
-
-Course search for international students
-
-RMIT – “   "
-
-Living in Vietnam
-
-Obtaining a student visa to Vietnam
-
-International student support services
-
- RMIT:
-
-Apply to RMIT
-
-Global experience
-
-Exchange to a partner university
-
-Cross-campus to RMIT Melbourne
-
-Global short programs
-
-Transfer to Melbourne for current students
-
-RMIT interlocation in Asia
-
-Contact us
-
-Exchange student stories
-
-Scholarships
-
-Future undergraduate scholarships
-
-Academic Achievement Scholarship for Current Students
-
-Postgraduate scholarships
-
-International student scholarships
-
-Your scholarship application has been received
-
-Study at RMIT Melbourne
-
-Study your entire degree in Melbourne
-
-Vietnam and Melbourne Dual campus programs for prospective students
-
-Tuition fees
-
-Payment methods
-
-English for University tuition fees
-
-Tuition fee assistance
-
-Discover the blended learning experience
-
-About blended learning
-
-Blended Learning with SEUP
-
-Important dates
-
-Higher education important dates
-
-Pathway programs important dates
-
-Frequently asked questions
-
-At RMIT, tuition fee payments are made each semester, on a course-by-course basis.
-
-Below are the tuition fees applicable to students who are new to the University and enrolled in a Higher
-
-Fees for continuing students in 2026 will be published separately on the student website. If you are unsure on
-
-Education program in 2026.
-
-how tuition fees apply to you, or if you want to learn more, please refer to the Student Fees & Charges Guide
-
-or contact us via our enquiries email address. Links are at the bottom of the page.
-
-RMIT Vietnam tuition feesExpand all sections
-
-English for University fees
-
-Find out about our feeshere.
-
-UniSTART Academic fees
-
-You can find our UniSTART Academic fees on itsprogram page.
-
-Foundation studies fees
-
-Program name
-
-VND Fee
-
-USD Fee
-
-(indicative)
-
-Foundation Studies
-
-Whole program316,992,000
-
-12,099
-
-Tuition fee 2026 for Undergraduate programs (estimated)
-
-The Business School
-
-Program name
-
-Credit
-
-Course
-
-VND Fee
-
-Indicative USD fee
-
-Business
-
-Annual*968375,840,00014,345
-
-Whole Program288241,127,520,00043,035
-
-Digital Marketing
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Tourism & Hospitality Management
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Accounting
-
-Annual*
-
-968375,840,00014,345
-
-Whole program
-
-288241,127,520,00043,035*The annual tuition fee is indicative based on an average student's study load
-
-School of Communication & Design
-
-Program name
-
-Credit
-
-Course
-
-VND Fee
-
-Indicative USD fee
-
-Professional Communication
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-International Studies
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Fashion (Enterprise)**
-
-Annual*968375,840,00014,345
-
-Whole program288221,127,520,00043,035
-
-Design (Digital Media)
-
-Annual*968375,840,00014,345
-
-Whole program288181,127,520,00043,035
-
-Design Studies
-
-Annual*968375,840,00014,345
-
-Whole Program288221,127,520,00043,035
-
-Digital Film And Video
-
-Annual*968390,432,00014,902
-
-Whole program288211,171,296,00044,706
-
-Games
-
-Annual*966375,840,00014,345
-
-Whole program288181,127,520,00043,035*The annual tuition fee is indicative based on an average student's study
-
-load
-
-School of Science, Engineering & Technology
-
-Program name
-
-Credit
-
-Course
-
-VND Fee
-
-Indicative USD fee
-
-Information Technology
-
-Annual*968375,840,00014,345
-
-Whole program288221,127,520,00043,035
-
-Computer Science
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Electronic and Computer Systems Engineering(Honours)**
-
-Annual*968375,840,00014,345
-
-Whole program384321,503,360,00057,380
-
-Software Engineering(Honours)***
-
-Annual*968375,840,00014,345
-
-Whole program384321,503,360,00057,380
-
-Robotics & Mechatronics Engineering(Honours)**
-
-Annual*968375,840,00014,345
-
-Whole program384321,503,360,00057,380
-
-Psychology
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Aviation
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035
-
-Food Technology and Nutrition****
-
-Annual*968375,840,00014,345
-
-Whole program288241,127,520,00043,035*The annual tuition fee is indicative based on an average student's study
-
-load
-
-Tuition fee 2026 for Postgraduate programs (estimated)
-
-Graduate certificates and diplomas
-
-Program nameWhole program
-
-CreditCourseVND FeeIndicative USD Fee
-
-Graduate Certificate in Business Administration
-
-484223,968,0008,548
-
-Graduate Certificate in International Business
-
-484223,968,0008,548
-
-Master programs tuition fees in 2026The Business School
-
-The Business School postgraduate programs consists of 16 courses. Students admitted into the program with a
-
-bachelor degree or higher level qualification in business (or a related discipline) completed within 10 years
-
-will only need to complete 12 courses.
-
-Program name
-
-Credit
-
-Course
-
-VND Fee
-
-Indicative USD Fee
-
-Master of Business Administration
-
-Tuition fee for 12 courses14412
-
-671,904,000
-
-25,645
-
-Standard tuition fee (16 courses)19216
-
-895,872,000
-
-34,194
-
-Master of International Business
-
-Tuition fee for 12 courses14412
-
-671,904,000
-
-25,645
-
-Standard tuition fee (16 courses)19216
-
-895,872,000
-
-34,194School of Science, Engineering & Technology
-
-Program name
-
-Credit
-
-Course
-
-VND Fee
-
-Indicative USD Fee
-
-Master of Artificial Intelligence**
-
-Whole program19216
-
-895,872,000
-
-34,194*The annual tuition fee is indicative based on an average student's study load
-
-Study abroad programs
-
-A trimester-long Study Abroad program consists of four courses per semester, which is equivalent to a full-
-
-Name
-
-Credit
-
-CourseVND Fee
-
-Indicative USD Fee*
-
-Undergraduate 4-course package
-
-time study load. As long as you meet the entry requirements for each course, you can choose courses from
-
-across all programs.Search for coursesyou can take as a study abroad student at RMIT Vietnam.
-
-4 courses164,000,000
-
-6,260
-
-Undergraduate 3-course package363 courses137,000,0005,229
-
-Postgraduate 4-course package
-
-484 courses219,000,0008,359
-
-Postgraduate 3-course package363 courses174,000,0006,641
-
-If your university has a partnership agreement with RMIT, a 10% discount on tuition fee will be applied.
-
-*Note: The fee excludescompulsory medical insurance.
-
-Compulsory Non-Academic Fees
-
-Service
-
-VND Fee
-
-Indicative USD Fee
-
-Medical Insurance Fee for International Students
-
-7,400,000/semester
-
-285/semester
-
-National Medical Insurance Fee
-
-(collected on behalf of the Social Insurance Unit of the city in which the campus is located)
-
-683,100/year
-
-(applicable from semester 2 2026)
-
-26/year
-
-(applicable from semester 2 2026)
-
-Notes about tuition fees
-
-RMIT Vietnam has 3 semesters per year, in each semester you enrol into a maximum of 3 courses. The duration of
-
-programs is flexible and can be adapted on an individual basis upon enrolment.
-
-Program fees are priced and invoiced in Vietnamese Dong (VND) by semester. Payments are made each semester, on
-
-a course-by-course basis.
-
-Payments made in foreign currencies will be converted to Vietnamese Dong (VND) based on the applicable
-
-exchange rate on the transaction date. Any currency conversion fees and related bank charges will be borne by
-
-the student.
-
-Online payment viamyRMITis the preferred payment method, as it offers secure transactions, automatic
-
-Medical Insurance is compulsory for international students. Suitable medical insurance will be arranged by
-
-confirmation, and faster processing.
-
-The National Medical Insurance Fee is paid by all Vietnamese university students in Vietnam. The level of the
-
-Medical insurance fees are subject to change without notice.
-
-Fees are indicative only and subject to change based on individual enrolment. These fees apply only to 2026.
-
-fee is related to the minimum wage in Vietnam.
-
-For further details and terms and conditions, refer to the 2026 Student Fees and Charges Guide.Download the
-
-2026 Student fees and charges guide
-
-RMIT Vietnam on behalf of the student. Should an international student choose to arrange their own medical
-
-insurance, evidence of this must be provided before the semester begins.
-
-The Student fees and charges guide PDF is 818KB and has 64 pages.
-
-Tuition fee assistance
-
-Tuition fee assistance is available for selected programs and locations.
-
-Learn more about tuition fee assistance
-
-Student fees and charges guideDownload 2026 Student fees and charges guide
-
-The Student fees and charges guide PDF is 818KB and has 64 pages.
-
-How to apply
-
-Take the next step and discover the application process. From selecting a program to eligibility, you'll find
-
-Get in touch
-
-Do you have a question or need assistance? We're here to help. Our friendly staff are available to assist with
-
-Scholarships
-
-RMIT University Vietnam supports a scholarship program that awards scholarships to young people from all over
-
-everything you need here.Learn more
-
-any of your inquiries.Contact us
-
-Vietnam and around the world.Learn more
-
-Payment methods
-
-Online payment
-
-Use our online payment platform with bank cards or a QR code.Learn more
-
-Campus cashier
-
-You can pay on campus to your local campus cashier with bank cards .Learn more
+Log in tomyRMIT, and pay cashless via the Financial Account tile.
 
 Bank transfer
 
-Transfer to the RMIT Vietnam Vietcombank accountLearn more
+Internal and external bank transferring
 
-Cash deposit or credit card
+POS machine (*)
 
-Directly deposit into the RMIT Vietnam Vietcombank account.Learn moreRelated links
+(Accept all banks card and card’s types)
 
-Undergraduate programs
+Saigon South:Banking staff will support to take payment at cashier counter in regular working day.
 
-Postgraduate programs
+Hanoi:Banking staff will support to take payment at cashier counter in regular working day
 
-PhD programs
+Danang:Banking  staff  will  support  to  take  payment  at  the  cashier  during  agreed  days  following  to
 
-International students study in Vietnam
+payment
 
-Pathway programs
+schedule of SEUP. RMIT’s cashier counter will close out of agreed days.
 
-English language programsReferences and resources
+Cash transaction
 
-Student fees and charges guideContact RMITTel: (+84) 28 3776 1369Mon - Fri, 9am to 5pmenquiries@rmit.edu.vn702
+At any VCB branches offices or
 
-Nguyen Van Linh boulevard, Tan Hung ward, Ho Chi Minh city, Vietnam
+At any other banks to make a cash deposit to VCB account.
+
+RMIT payment website
+
+Visit theRMIT payment website here.
+
+Note:The  minimum  transaction  amount  allowed  to  be  paid  via  RMIT  website  &  myRMIT  is  10,000
+
+VND.
+
+How can I get the payment receipt when I pay online?
+
+Payment receipt will be sent to your email.
+
+Note:The  minimum  transaction  amount  allowed  to  be  paid  via  RMIT  website  &  myRMIT  is  10,000
+
+VND.
+
+I am an international student and do not have a local bank account in Vietnam yet. How can I pay
+
+the
+
+tuition fee?
+
+You can make payment via the Financial Account tile inmyRMIT, or by external bank transfer or
+
+international bank cards at POS machine.
+
+If I forgot a bank card at home, what can I do?
+
+You can pay your fees via the Financial Account tile inmyRMIT. Alternatively, you can purchase a
+
+Gift
+
+Card at the cashier counter at Level 1, Building 2, SGS campus and then use it for your payment.
+
+Other information on cashless campus
+
+Expand all sections
+
+What is the VCB gift card?
+
+The VietcomBank (VCB) Gift Card is issued on SGS campus by VCB at the cashier counter: Level
+
+1, Building
+
+2. It is only offered to students who are ineligible to open a bank account or first-time visitors to
+
+campus.
+
+I am only on campus as a visitor, do I still need to use a VCB Gift Card?
+
+It is not required to have a Gift Card to use services if you already have other bank cards or use
+
+e-wallets.
+
+How  do  I  obtain  a  VCB  Gift  Card  /  where  on  campus  in  SGS,  Hanoi  and  Danang  can  I  purchase
+
+one?
+
+The VCB Gift Card is only offered at Saigon South campus. It can be bought at our cashier counter
+
+located
+
+at Level 1, Building 2 from Monday to Friday during working hours (8am-12pm / 1-5pm).
+
+The VCB gift card can be used to pay for food and drink and parking fees. Therefore, it only valid in
+
+SGS
+
+campus because RMIT does not offer these services in Hanoi and Danang campuses.
+
+What happens if I have left over credit on my VCB Gift Card, can it be refunded to me?
+
+The balance on this card is not eligible for cashback. The value of the card is VND 100,000 and you
+
+can
+
+use it in RMIT campuses in 3 years from the issuance date.
+
+Will the VCB Gift card expire?
+
+The card will expire 3 years from the issuance date.
+
+I’ve lost my VCB gift card, what do I do?
+
+The VCB Gift Card once assigned is your responsibility. RMIT and VCB are not responsible for the
+
+security
+
+or replacement of your card if lost.
+
+How can I check the balance of the VCB Gift Card?
+
+You can check the balance at the VCB cashier located on campus at Level 1, Building 2
+
+Can I use Apple Pay/Momo/other e-wallets?
+
+It varies. Please check with the vendors for e-wallet options.
+
+If my bank card has an error, how can I pay a parking fee?
+
+You will park your vehicle at a separate area and then buy a Vietcombank Gift Card at the cashier
+
+counter
+
+Level 1, Building 2, SGS campus. The parking fee will be paid when check-out. Besides that, you
+
+need to
+
+check with the issuer bank for an error and issue a new card if needed.
+
+Who do I contact for queries?
+
+Please send your queries toStudent Connect
+
+Related links and downloads
+
+Student Fees and Charges Guide
+
+Student Connect
 
 News
 
 Events
 
-Library
-
 Locations
 
 Careers
 
-ContactStudy at RMIT
+Contact
+
+Study at RMIT
 
 Study areas
 
@@ -882,7 +445,7 @@ Undergraduate programs
 
 Postgraduate programs
 
-Pathway programs
+Pathway programs
 
 English language programs
 
@@ -898,7 +461,9 @@ Study at RMIT Melbourne
 
 Tuition fees
 
-Important datesStudent life
+Important dates
+
+Student life
 
 Life on campus
 
@@ -906,7 +471,9 @@ Sports and social clubs
 
 Support services
 
-Life and work opportunitiesAbout
+Life and work opportunities
+
+About
 
 Why choose RMIT Vietnam
 
@@ -916,7 +483,9 @@ Work for RMIT
 
 Schools & centres
 
-Who we areResearch
+Who we are
+
+Research
 
 Research Clusters
 
@@ -926,451 +495,9 @@ Ethics and Integrity
 
 PhD Programs
 
-Office for Research & InnovationBusiness & Industry
+Office for Research & Innovation
 
-Employ our students & graduates
-
-Skills that make the difference
-
-Employers
-
-Partnerships
-
-Copyright © 2026 RMIT University|
-
-Disclaimer|
-
-Terms|
-
-Privacy|
-
-Accessibility|
-
-Website feedback|
-
-Complaints|
-
-ABN 49 781 030 034|
-
-CRICOS provider number: 00122A|
-
-RTO Code: 3046|
-
-Open Universities Australia
-
-https://www.rmit.edu.vn/students/my-studies/fees-and-payments
-
-Fees and paymentsSKIP TO CONTENT
-
-Fees and payments - RMIT University
-
-RMIT Vietnam
-
-RMIT Australia
-
-RMIT Europe
-
-Students
-
-Alumni
-
-Staff
-
-LibrarySearch fieldSearchSearchRMIT Vietnam
-
-RMIT Australia
-
-RMIT EuropeStudentsAlumniStaffLibrary
-
-New students
-
-Enrol as a new student
-
-Before semesters start
-
-Orientation
-
-My studies
-
-New students
-
-International students
-
-Enrolment
-
-Class timetables
-
-Fees and payments
-
-Assessments and exams
-
-Rights and responsibilities
-
-Graduation
-
-Student support
-
-Student Academic Success (SAS)
-
-Administrative support
-
-IT support
-
-Wellbeing services
-
-Campus life
-
-Student clubs
-
-Student Council
-
-Leadership development
-
-Sports and fitness
-
-Campus facilities
-
-Activities and events
-
-Volunteer program
-
-Merchandise
-
-Work and study
-
-Skills development
-
-Prepare for work
-
-Career opportunities
-
-Vietnam graduate survey
-
-Exchange programs
-
-Short courses and programs
-
-Study in Asia
-
-Permanent transfer to Melbourne
-
-New students
-
-Enrol as a new student
-
-Before semesters start
-
-Orientation
-
-My studies
-
-New students
-
-International students
-
-Enrolment
-
-Class timetables
-
-Fees and payments
-
-Assessments and exams
-
-Rights and responsibilities
-
-Graduation
-
-Student support
-
-Student Academic Success (SAS)
-
-Administrative support
-
-IT support
-
-Wellbeing services
-
-Campus life
-
-Student clubs
-
-Student Council
-
-Leadership development
-
-Sports and fitness
-
-Campus facilities
-
-Activities and events
-
-Volunteer program
-
-Merchandise
-
-Work and study
-
-Skills development
-
-Prepare for work
-
-Career opportunities
-
-Vietnam graduate survey
-
-Exchange programs
-
-Short courses and programs
-
-Study in Asia
-
-Permanent transfer to Melbourne
-
-Fees and payments
-
-Tuition fee information, payment methods and more information about financial matters.
-
-Tuition fee information, payment methods and more information about financial matters.Home/Current students/My
-
-studies/Fees and payments
-
-Back to My studies
-
-New students
-
-Enrol as a new student
-
-Before semesters start
-
-Orientation
-
-Student onboarding modules
-
-International students resources
-
-International health insurance for international students
-
-Study visa information for international students
-
-Accommodation for international students
-
-Buddy program
-
-Essential banking resources in Vietnam
-
-Program and course information
-
-Program guides and maps
-
-Course guides
-
-Course requisites
-
-Inherent requirements
-
-Online course lists
-
-Enrolment
-
-Confirmation of enrolment
-
-Change or cancel your enrolment
-
-Apply for leave of absence
-
-Apply for credit
-
-Re-enrol as a continuing student
-
-Important dates and academic calendar
-
-Canvas - study portal
-
-Class timetables
-
-Timetable FAQs
-
-Fees and payments
-
-Paying your fees
-
-Defer a payment
-
-Tuition fees FAQ and support
-
-How to apply for a refund
-
-Health insurance
-
-Tax invoices
-
-Assessment and results
-
-Extensions and special consideration
-
-Results and grades
-
-Academic progress
-
-Academic integrity
-
-Remission (Removal) of debt
-
-Appeals
-
-Rights and responsibilities
-
-Student complaints
-
-Appeal against misconduct decision
-
-Graduation
-
-Eligibility and Apply to graduate
-
-RMIT academic statement
-
-Attend the ceremony
-
-Class Representatives
-
-myRMIT information
-
-Tasks
-
-Personal Details
-
-Enrolment
-
-Academic Records
-
-Financial Account
-
-Graduation
-
-Submit Requests
-
-Tuition fee information, payment methods and more information about financial matters.
-
-Scam alert! Scammers are targeting university students in Vietnam with sophisticated schemes.Stay informed
-
-Fees and Charges
-
-TheStudent Fees and Charges Guide(PDF, 803KB, 65p) explains how fees are set and what the various charges are
-
-A list of the indicative total program fees, calculated at today's course costs, can be viewed under Tuition
-
-Fees. Students can view their fees, download invoices and make online payments via the Financial Account tile
-
-for the 2025 academic year. The Guide includes information about non-academic fees (such as international
-
-insurance fees and Vietnam insurance fees) and other administrative fees (such as transcript fees, graduation
-
-fees, and photocopying fees).
-
-Note:RMIT reserves the right to adjust program tuition fees to take into account increases in University and
-
-Paying your fees
-
-Information regarding how to pay for your fees and the methods of payment available.
-
-Defer a payment
-
-RMIT has strict payment and enrolment deadlines. However, we also understand that there may be exceptional
-
-Tuition fees FAQ and support
-
-Get the support you need and answers to frequently asked questions about tuition fees.
-
-How to apply for a refund
-
-Learn the eligibility criteria and the procedure on how to apply for a refund.
-
-Health insurance
-
-program delivery costs. All fee increases are subject to approval by the RMIT Board of Directors.
-
-inmyRMIT.
-
-cases that make it appropriate for a payment plan to be approved.
-
-At RMIT Vietnam, your health and wellbeing matter. Having health insurance ensures you are supported with
-
-medical care during your studies.
-
-Tax invoices
-
-Your invoice lists all your current fees, charges and due dates.You may also be interested in
-
-Enrolment and courses
-
-Important dates and academic calendar
-
-Tuition fees
-
-News
-
-Events
-
-Library
-
-Locations
-
-Careers
-
-ContactStudy at RMIT
-
-Study areas
-
-Undergraduate programs
-
-Postgraduate programs
-
-Pathway programs
-
-English language programs
-
-International students
-
-Apply to RMIT
-
-Global study options
-
-Scholarships
-
-Study at RMIT Melbourne
-
-Tuition fees
-
-Important datesStudent life
-
-Life on campus
-
-Sports and social clubs
-
-Support services
-
-Life and work opportunitiesAbout
-
-Why choose RMIT Vietnam
-
-RMIT parents and family
-
-Work for RMIT
-
-Schools & centres
-
-Who we areResearch
-
-Research Clusters
-
-Projects and Partnerships
-
-Ethics and Integrity
-
-PhD Programs
-
-Office for Research & InnovationBusiness & Industry
+Business & Industry
 
 Employ our students & graduates
 
